@@ -11,8 +11,6 @@ ORDER BY quantidade_minima DESC
 
 -- exercicio 03
 
--- select nome, id FROM produto;
--- SELECT * FROM Produto WHERE NOT nome = 'pão' OR nome ='tomate';
 
 
 -- exercicio 04
@@ -22,5 +20,16 @@ from Pesquisa join Produto on
 Produto.id = Pesquisa.produto_id
 join Mercado on Mercado.id = Pesquisa.mercado_id
 order by Produto.nome, Preco
+
+
+-- exercicio 05
+
+select Mercado.nome, Produto.id, Produto.nome, Produto.unidade_medida, Produto.quant_minima, Pesquisa.preco, Produto.quant_minima*Pesquisa.preco
+from Pesquisa join Produto on
+Produto.id = Pesquisa.produto_id
+join Mercado on Mercado.id = Pesquisa.mercado_id
+where Mercado.nome = 'Quitanda do Zé'
+order by Produto.quant_minima*Pesquisa.preco desc
+
 
 pgAdmin4
