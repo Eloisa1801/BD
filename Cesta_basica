@@ -1,15 +1,26 @@
 -- exercicio 01
 SELECT * FROM Produto;
 
+
 -- exercicio 02
 
 SELECT id, nome, quantidade_minima, unidade_medida 
 FROM Produto
 ORDER BY quantidade_minima DESC
 
+
 -- exercicio 03
 
 -- select nome, id FROM produto;
 -- SELECT * FROM Produto WHERE NOT nome = 'pão' OR nome ='tomate';
+
+
+-- exercicio 04
+
+select Produto.id, Produto.nome, Mercado.nome, Produto.quant_minima, Pesquisa.preco, Produto.quant_minima*Pesquisa.preco
+from Pesquisa join Produto on
+Produto.id = Pesquisa.produto_id
+join Mercado on Mercado.id = Pesquisa.mercado_id
+order by Produto.nome, Preco
 
 pgAdmin4
