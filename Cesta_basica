@@ -11,3 +11,5 @@ ORDER BY quantidade_minima DESC
 
 -- select nome, id FROM produto;
 -- SELECT * FROM Produto WHERE NOT nome = 'pão' OR nome ='tomate';
+
+pgAdmin4
