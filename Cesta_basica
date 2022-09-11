@@ -11,6 +11,12 @@ ORDER BY quantidade_minima DESC
 
 -- exercicio 03
 
+select Cesta.codigo, Cesta.nome, Produto_cesta.quantidade, Produto.unidade_medida, Produto.nome
+from Produto_cesta join Produto ON
+Produto.id = Produto_cesta.produto_id
+join Cesta on Cesta.codigo = Produto_cesta.cesta_codigo 
+ORDER BY Cesta.codigo DESC, Produto.nome 
+
 
 
 -- exercicio 04
