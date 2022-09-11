@@ -48,4 +48,4 @@ join Mercado on Mercado.id = Pesquisa.mercado_id
 ORDER BY Cesta.nome, Produto.nome, Pesquisa.preco
 
 
-pgAdmin4
+ 
