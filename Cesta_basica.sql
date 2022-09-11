@@ -40,16 +40,9 @@ order by Produto.quant_minima*Pesquisa.preco desc
 
 -- exercicio 06
  
-select Cesta.nome, Produto.nome, Mercado.nome, Produto_cesta.quantidade, Pesquisa.preco, Produto_cesta.quantidade*Pesquisa.preco
-from Produto join Pesquisa on Produto.id = Pesquisa.produto_id 
-join Produto_cesta join Produto ON Produto.id = Produto_cesta.produto_id 
-join Cesta on Cesta.codigo = Produto_cesta.cesta_codigo 
-join Mercado on Mercado.id = Pesquisa.mercado_id
-ORDER BY Cesta.nome, Produto.nome, Pesquisa.preco
-
-
- select Cesta.nome, Produto.nome, Mercado.nome, Produto.quant_minima, Pesquisa.preco, Produto.quant_minima*Pesquisa.preco
+select Cesta.nome, Produto.nome, Mercado.nome, Produto.quant_minima, Pesquisa.preco, Produto.quant_minima*Pesquisa.preco
 FROM Cesta,Pesquisa
 JOIN Produto ON Produto.id = Pesquisa.produto_id
 JOIN Mercado ON Mercado.id = Pesquisa.mercado_id 
-ORDER BY Cesta.nome, Produto.nome, Pesquisa.preco
+-- where Produto.nome = 'Arroz' or Produto.nome = 'Carne'
+ORDER BY Cesta.nome, Produto.nome, Preco
