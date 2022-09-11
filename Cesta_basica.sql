@@ -48,4 +48,8 @@ join Mercado on Mercado.id = Pesquisa.mercado_id
 ORDER BY Cesta.nome, Produto.nome, Pesquisa.preco
 
 
- 
+ select Cesta.nome, Produto.nome, Mercado.nome, Produto.quant_minima, Pesquisa.preco, Produto.quant_minima*Pesquisa.preco
+FROM Cesta,Pesquisa
+JOIN Produto ON Produto.id = Pesquisa.produto_id
+JOIN Mercado ON Mercado.id = Pesquisa.mercado_id 
+ORDER BY Cesta.nome, Produto.nome, Pesquisa.preco
