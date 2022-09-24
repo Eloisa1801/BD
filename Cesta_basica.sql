@@ -58,3 +58,8 @@ SELECT gender, bloodtype, count(*)
 FROM fakenames
 GROUP BY gender, bloodtype
 ORDER BY bloodtype
+
+
+select givenname, age, 
+	case when age >= 60 then 'IDOSO' else 'JOVEM' end
+from fakenames
