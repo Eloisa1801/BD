@@ -46,3 +46,15 @@ JOIN Produto ON Produto.id = Pesquisa.produto_id
 JOIN Mercado ON Mercado.id = Pesquisa.mercado_id 
 -- where Produto.nome = 'Arroz' or Produto.nome = 'Carne'
 ORDER BY Cesta.nome, Produto.nome, Preco
+
+
+
+-- ___________________________________________________________________
+
+
+-- Controle de voo
+
+SELECT gender, bloodtype, count(*)
+FROM fakenames
+GROUP BY gender, bloodtype
+ORDER BY bloodtype
