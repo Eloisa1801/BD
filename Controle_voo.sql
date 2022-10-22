@@ -3,7 +3,6 @@ select Pessoa.nome
 from Pessoa join Funcionario ON
 Funcionario.pessoa_id = Pessoa.id;
 
-
 --2. Data de nascimento dos pilotos;
 select Pessoa.data_nasc
 from Piloto join Pessoa on
@@ -50,12 +49,28 @@ Piloto.pessoa_id = Pessoa.id
 WHERE Pessoa.nome like 'C%';
 
 -- 10. Nome e idade das aeromoças na época que fizeram o curso da ANAC;
-
-
+select Pessoa.nome, date_part('year', age(data_nasc)), Aeromoca.data_curso_anac
+from Aeromoca join Pessoa on
+Aeromoca.pessoa_id = Pessoa.id;
 
 -- 11. Aeromoças com mais que 5 anos de formação;
+select Pessoa.nome, date_part('year', age(data_curso_anac))
+from Aeromoca join Pessoa on
+Aeromoca.pessoa_id = Pessoa.id
+where date_part('year', age(data_curso_anac)) > 5;
+
 -- 12. Funcionários com telefones com prefixo 11;
+select Pessoa.nome, Pessoa.telefone
+from Pessoa join Funcionario ON
+Funcionario.pessoa_id = Pessoa.id
+WHERE Pessoa.telefone like '(11)%';
+
 -- 13. Funcionários com telefones com prefixo 64;
+select Pessoa.nome, Pessoa.telefone
+from Pessoa join Funcionario ON
+Funcionario.pessoa_id = Pessoa.id
+WHERE Pessoa.telefone like '(64)%';
+
 -- 14. Todos os domínios dos e-mails das pessoas;
 -- 15. Todos os domínios dos e-mails dos funcionários;
 -- 16. Domínios de e-mail finalizados em .com (sem repetição);
