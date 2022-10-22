@@ -72,10 +72,24 @@ Funcionario.pessoa_id = Pessoa.id
 WHERE Pessoa.telefone like '(64)%';
 
 -- 14. Todos os domínios dos e-mails das pessoas;
+select Pessoa.email
+from Pessoa;
+
 -- 15. Todos os domínios dos e-mails dos funcionários;
+select Pessoa.email
+from Pessoa join Funcionario ON
+Funcionario.pessoa_id = Pessoa.id;
+
 -- 16. Domínios de e-mail finalizados em .com (sem repetição);
+select DISTINCT Pessoa.email
+from Pessoa
+WHERE Pessoa.email like '%.com%';
+
 -- 17. Nomes, idades e e-mails dos funcionários com e-mail .com, com mais de 45 anos, morados de MS
 -- e com salário superior a R$5000,00;
+
+
+
 -- 18. E-mails que contém a palavra souza;
 -- 19. Prenome dos pilotos com DDD 69 com CPF final par;
 -- 20. Aeromoças (ou comissários) que também são pilotos;
