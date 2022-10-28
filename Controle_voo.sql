@@ -111,3 +111,10 @@ WHERE Pessoa.email like '%.com%';
 -- 36. Nome das três cidades com o maior número de aeromoças;
 -- 37. Quantidade de aeromoças moradoras em cada Cidade;
 -- 38. Domínios de e-mail com maior frequência (aparecem mais);
+
+BEGIN TRANSACTION;
+
+UPDATE Pessoa SET nome = 'Frank Amorim' WHERE id < 30;
+UPDATE Pessoa SET Sexo = 'F' WHERE id < 20;
+
+SELECT id, nome, sexo from pessoa where id < 30;                             
