@@ -1,25 +1,76 @@
 -- Criação do banco de dados
-CREATE DATABASE meu_banco_de_dados;
+CREATE DATABASE comercio;
 
 -- Selecionando o banco de dados
-USE meu_banco_de_dados;
-
+USE comercio;
+/*
 -- Criação da tabela "clientes"
 CREATE TABLE clientes (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     telefone VARCHAR(15)
+);*/
+
+CREATE TABLE clientes (
+  number int NOT NULL PRIMARY KEY,
+  gender varchar(6) NOT NULL,
+  nameset varchar(25) NOT NULL,
+  title varchar(6) NOT NULL,
+  givenname varchar(20) NOT NULL,
+  middleinitial varchar(1) NOT NULL,
+  surname varchar(23) NOT NULL,
+  streetaddress varchar(100) NOT NULL,
+  city varchar(100) NOT NULL,
+  state varchar(22) NOT NULL,
+  statefull varchar(100) NOT NULL,
+  zipcode varchar(15) NOT NULL,
+  country varchar(2) NOT NULL,
+  countryfull varchar(100) NOT NULL,
+  emailaddress varchar(100) NOT NULL,
+  username varchar(25) NOT NULL,
+  password varchar(25) NOT NULL,
+  browseruseragent varchar(255) NOT NULL,
+  telephonenumber varchar(25) NOT NULL,
+  telephonecountrycode int NOT NULL,
+  maidenname varchar(20) NOT NULL,
+  birthday varchar(10) NOT NULL,
+  age int NOT NULL,
+  tropicalzodiac varchar(11) NOT NULL,
+  cctype varchar(10) NOT NULL,
+  ccnumber varchar(16) NOT NULL,
+  CVV2 varchar(3) NOT NULL,
+  ccexpires varchar(10) NOT NULL,
+  nationalid varchar(20) NOT NULL,
+  upstracking varchar(24) NOT NULL,
+  westernunionmtcn char(10) NOT NULL,
+  moneygrammtcn char(8) NOT NULL,
+  color varchar(6) NOT NULL,
+  occupation varchar(70) NOT NULL,
+  company varchar(70) NOT NULL,
+  vehicle varchar(255) NOT NULL,
+  domain varchar(70) NOT NULL,
+  bloodtype varchar(3) NOT NULL,
+  pounds varchar(5) NOT NULL,
+  kilograms varchar(5) NOT NULL,
+  feetinches varchar(6) NOT NULL,
+  centimeters varchar(3) NOT NULL,
+  guid varchar(36) NOT NULL,
+  latitude numeric(10,6) NOT NULL,
+  longitude numeric(10,6) NOT NULL
 );
 
+
 -- Importação de dados para a tabela "clientes"
-LOAD DATA INFILE '"C:\Users\Aluno\Documents\sergio\mini_PostgreSQL\fakenames.csv"'
+
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\fakenames.csv'
 INTO TABLE clientes
-FIELDS TERMINATED BY ','
+FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
+/*
 -- Criação da tabela "pedidos"
 CREATE TABLE pedidos (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -30,7 +81,7 @@ CREATE TABLE pedidos (
 );
 
 -- Importação de dados para a tabela "pedidos"
-LOAD DATA INFILE 'C:\Users\Aluno\Documents\sergio\mini_PostgreSQL\DataNasc.csv'
+LOAD DATA INFILE 'C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\DataNasc.csv'
 INTO TABLE pedidos
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -48,7 +99,7 @@ CREATE TABLE itens_pedido (
 );
 
 -- Importação de dados para a tabela "itens_pedido"
-LOAD DATA INFILE 'C:\Users\Aluno\Documents\sergio\mini_PostgreSQL\produtos.csv'
+LOAD DATA INFILE 'C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\produtos.csv'
 INTO TABLE itens_pedido
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -64,7 +115,7 @@ CREATE TABLE produtos (
 );
 
 -- Importação de dados para a tabela "produtos"
-LOAD DATA INFILE 'C:\Users\Aluno\Documents\sergio\mini_PostgreSQL\produtos.csv'
+LOAD DATA INFILE 'C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\produtos.csv'
 INTO TABLE produtos
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -80,7 +131,7 @@ CREATE TABLE estoque (
 );
 
 -- Importação de dados para a tabela "estoque"
-LOAD DATA INFILE '/caminho/para/arquivo/estoque.csv'
+LOAD DATA INFILE 'C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\estoque.csv'
 INTO TABLE estoque
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
