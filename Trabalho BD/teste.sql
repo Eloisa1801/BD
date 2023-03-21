@@ -70,10 +70,10 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-/*
+
 -- Criação da tabela "pedidos"
 CREATE TABLE pedidos (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+	id INT PRIMARY KEY AUTO_INCREMENT,
     cliente_id INT NOT NULL,
     data_pedido DATE NOT NULL,
     valor_total DECIMAL(10, 2) NOT NULL,
@@ -81,13 +81,13 @@ CREATE TABLE pedidos (
 );
 
 -- Importação de dados para a tabela "pedidos"
-LOAD DATA INFILE 'C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\DataNasc.csv'
+/*LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\Passagem.csv'
 INTO TABLE pedidos
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
-
+*/
 -- Criação da tabela "itens_pedido"
 CREATE TABLE itens_pedido (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -99,12 +99,12 @@ CREATE TABLE itens_pedido (
 );
 
 -- Importação de dados para a tabela "itens_pedido"
-LOAD DATA INFILE 'C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\produtos.csv'
+/*LOAD DATA INFILE 'C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\produtos.csv'
 INTO TABLE itens_pedido
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
-IGNORE 1 ROWS;
+IGNORE 1 ROWS;*/
 
 -- Criação da tabela "produtos"
 CREATE TABLE produtos (
@@ -115,12 +115,12 @@ CREATE TABLE produtos (
 );
 
 -- Importação de dados para a tabela "produtos"
-LOAD DATA INFILE 'C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\produtos.csv'
+/*LOAD DATA INFILE 'C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\produtos.csv'
 INTO TABLE produtos
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
-IGNORE 1 ROWS;
+IGNORE 1 ROWS;*/
 
 -- Criação da tabela "estoque"
 CREATE TABLE estoque (
@@ -131,9 +131,9 @@ CREATE TABLE estoque (
 );
 
 -- Importação de dados para a tabela "estoque"
-LOAD DATA INFILE 'C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\estoque.csv'
+/*LOAD DATA INFILE 'C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\estoque.csv'
 INTO TABLE estoque
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
-IGNORE 1 ROWS;
+IGNORE 1 ROWS;*/
