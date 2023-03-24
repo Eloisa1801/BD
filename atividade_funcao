@@ -1,0 +1,12 @@
+create or replace function Fn_caracter_aleatorio() --retorna uma letra aleatória
+create or replace function Fn_3Caracter_aleatorio() --retorna aleat concatenadas
+create or replace function Fn_cria_aeronaves
+	(quantidade int, sigla_tipo_aeronave varchar(10))
+return void 
+as $$
+begin
+	raise notice 'Criando % aeronaves com pref. aleatório e tipo %',
+	quantidade, sigla_tipo_aeronave;
+	--aqui código para inserir as várias aeronaves
+end;
+$$ language plpgqs;
