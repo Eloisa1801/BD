@@ -177,6 +177,51 @@ WHERE tropicalzodiac = Tropical.nome;
 
 ALTER TABLE FAKE2 drop column tropicalzodiac;
 	
+
+CREATE TABLE Cor
+(
+   codigo serial PRIMARY KEY, 
+   nome varchar(70) NOT NULL
+);
+
+INSERT INTO Cor (nome)
+SELECT DISTINCT color
+FROM Fake2
+ORDER BY 1;
+
+select * from fake2;
+
+ALTER TABLE Fake2 ADD COLUMN cor int REFERENCES Cor(codigo);
+
+UPDATE fake2 SET cor = Cor.codigo
+FROM Cor
+WHERE color = Cor.nome;
+
+ALTER TABLE FAKE2 drop column color;
+	
+	
+	
+CREATE TABLE Dominio
+(
+   codigo serial PRIMARY KEY, 
+   nome varchar(70) NOT NULL
+);
+
+INSERT INTO Dominio (nome)
+SELECT DISTINCT domain
+FROM Fake2
+ORDER BY 1;
+
+select * from fake2;
+
+ALTER TABLE Fake2 ADD COLUMN dominio int REFERENCES Dominio(codigo);
+
+UPDATE fake2 SET dominio = Dominio.codigo
+FROM Dominio
+WHERE domain = Dominio.nome;
+
+ALTER TABLE FAKE2 drop column domain;
+	
 	
 
 
