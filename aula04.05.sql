@@ -133,7 +133,51 @@ ALTER TABLE FAKE2 drop column company;
 --WHERE fake2.number = fakenames.number;
 
 
+CREATE TABLE Tipo
+(
+   codigo serial PRIMARY KEY, 
+   nome varchar(70) NOT NULL
+);
 
+INSERT INTO Tipo (nome)
+SELECT DISTINCT cctype
+FROM Fake2
+ORDER BY 1;
+
+select * from tipo;
+
+ALTER TABLE Fake2 ADD COLUMN tipo int REFERENCES Tipo(codigo);
+
+UPDATE fake2 SET tipo = Tipo.codigo
+FROM Tipo
+WHERE cctype = Tipo.nome;
+
+ALTER TABLE FAKE2 drop column cctype;
+
+	
+	
+CREATE TABLE Tropical
+(
+   codigo serial PRIMARY KEY, 
+   nome varchar(70) NOT NULL
+);
+
+INSERT INTO Tropical (nome)
+SELECT DISTINCT tropicalzodiac
+FROM Fake2
+ORDER BY 1;
+
+select * from fake2;
+
+ALTER TABLE Fake2 ADD COLUMN tropical int REFERENCES Tropical(codigo);
+
+UPDATE fake2 SET tropical = Tropical.codigo
+FROM Tropical
+WHERE tropicalzodiac = Tropical.nome;
+
+ALTER TABLE FAKE2 drop column tropicalzodiac;
+	
+	
 
 
 	
