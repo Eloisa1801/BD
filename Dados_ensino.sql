@@ -71,5 +71,20 @@ ALTER TABLE Dados_ensino drop column NO_MUNICIPIO;
 
 /*------------------------*/
 
+CREATE TABLE Microregiao
+(
+   codigo int PRIMARY KEY,
+   nome varchar(100),
+);
 
+INSERT INTO Microregiao
+SELECT DISTINCT CO_MICROREGIAO, NO_MICROREGIAO
+FROM Dados_ensino
+ORDER BY 1;
+
+select * from Microregiao;
+
+ALTER TABLE Dados_ensino drop column CO_MICROREGIAO;
+
+/*------------------------*/
 
