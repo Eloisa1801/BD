@@ -104,3 +104,20 @@ ALTER TABLE Dados_ensino drop column NO_MICROREGIAO;
 
 /*------------------------*/
 
+CREATE TABLE Entidade
+(
+   codigo bigint PRIMARY KEY,
+   nome varchar(100)
+);
+
+INSERT INTO Entidade
+SELECT DISTINCT CO_ENTIDADE, NO_ENTIDADE
+FROM Dados_ensino
+ORDER BY 1;
+
+select * from Entidade;
+
+ALTER TABLE Dados_ensino drop column NO_ENTIDADE;
+
+/*------------------------*/
+
