@@ -225,3 +225,28 @@ WHERE NO_BAIRRO = Bairro.nome;
 
 ALTER TABLE Dados_ensino drop column NO_BAIRRO;
 /*------------------------*/
+
+CREATE TABLE Cep
+(
+	codigo serial PRIMARY KEY,
+	nome varchar(100)
+);
+
+INSERT INTO Cep(nome)
+SELECT DISTINCT CO_CEP
+FROM Dados_ensino
+ORDER BY 1;
+
+select * from Cep;
+
+ALTER TABLE Dados_ensino ADD COLUMN cep int REFERENCES Cep(codigo);
+
+UPDATE Dados_ensino SET cep = Cep.codigo
+FROM Cep
+WHERE CO_CEP = Cep.nome;
+
+ALTER TABLE Dados_ensino drop column CO_CEP;
+/*------------------------*/
+
+select * from Dados_ensino;
+
