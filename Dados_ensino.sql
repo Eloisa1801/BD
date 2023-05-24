@@ -182,6 +182,28 @@ WHERE NU_ENDERECO = N_endereco.nome;
 ALTER TABLE Dados_ensino drop column NU_ENDERECO;
 /*------------------------*/
 
+CREATE TABLE Complemento
+(
+	codigo serial PRIMARY KEY,
+	nome varchar(100)
+);
+
+INSERT INTO Complemento(nome)
+SELECT DISTINCT DS_COMPLEMENTO
+FROM Dados_ensino
+ORDER BY 1;
+
+select * from Complemento;
+
+ALTER TABLE Dados_ensino ADD COLUMN complemento int REFERENCES Complemento(codigo);
+
+UPDATE Dados_ensino SET complemento = Complemento.codigo
+FROM Complemento
+WHERE DS_COMPLEMENTO = Complemento.nome;
+
+ALTER TABLE Dados_ensino drop column DS_COMPLEMENTO;
+/*------------------------*/
+
 CREATE TABLE Bairro
 (
 	codigo serial PRIMARY KEY,
