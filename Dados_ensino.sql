@@ -21,7 +21,7 @@ CREATE TABLE Dados_ensino(
 	TP_LOCALIZACAO_DIFERENCIADA INT NOT NULL,
 	DS_ENDERECO varchar(70),
 	NU_ENDERECO varchar(100),
-	DS_COMPLEMENTO char(100),
+	DS_COMPLEMENTO varchar(100),
 	NO_BAIRRO varchar(100),
 	CO_CEP varchar(100)
 );
@@ -180,4 +180,26 @@ FROM N_endereco
 WHERE NU_ENDERECO = N_endereco.nome;
 
 ALTER TABLE Dados_ensino drop column NU_ENDERECO;
+/*------------------------*/
+
+CREATE TABLE Complemento
+(
+	codigo serial PRIMARY KEY,
+	nome varchar(100)
+);
+
+INSERT INTO Complemento(nome)
+SELECT DISTINCT DS_COMPLEMENTO
+FROM Dados_ensino
+ORDER BY 1;
+
+select * from Complemento;
+
+ALTER TABLE Dados_ensino ADD COLUMN complemento int REFERENCES Complemento(codigo);
+
+UPDATE Dados_ensino SET complemento = Complemento.codigo
+FROM Complemento
+WHERE DS_COMPLEMENTO = Complemento.nome;
+
+ALTER TABLE Dados_ensino drop column DS_COMPLEMENTO;
 /*------------------------*/
