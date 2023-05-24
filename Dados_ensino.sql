@@ -52,14 +52,13 @@ ALTER TABLE Dados_ensino drop column NO_REGIAO;
 /*------------------------*/
 
 CREATE TABLE Uf
-(
-   codigo int primary key,
-   nome varchar(100),
-   sigla varchar(2)
+(  codigo int primary key,
+   nome varchar(100),
+   sigla varchar(2)
 );
 
 INSERT INTO Uf
-SELECT DISTINCT CO_UF, NO_UF, SG_UF, 
+SELECT DISTINCT CO_UF, NO_UF, SG_UF
 FROM Dados_ensino
 ORDER BY 1;
 
@@ -72,8 +71,8 @@ ALTER TABLE Dados_ensino drop column SG_UF;
 
 CREATE TABLE Municipio
 (
-   codigo varchar(20) primary key,
-   nome varchar(100)
+	codigo VARCHAR(8) primary key,
+	nome varchar(100)
 );
 
 INSERT INTO Municipio
@@ -87,14 +86,31 @@ ALTER TABLE Dados_ensino drop column NO_MUNICIPIO;
 
 /*------------------------*/
 
+CREATE TABLE Mesorregiao
+(
+	codigo int PRIMARY KEY,
+	nome varchar(100)
+);
+
+INSERT INTO Mesorregiao
+SELECT DISTINCT CO_MESORREGIAO, NO_MESORREGIAO
+FROM Dados_ensino
+ORDER BY 1;
+
+select * from Mesorregiao;
+
+ALTER TABLE Dados_ensino drop column NO_MESORREGIAO;
+
+/*------------------------*/
+
 CREATE TABLE Microregiao
 (
-   codigo int PRIMARY KEY,
-   nome varchar(100),
+	codigo int PRIMARY KEY,
+	nome varchar(100)
 );
 
 INSERT INTO Microregiao
-SELECT DISTINCT CO_MICROREGIAO, NO_MICROREGIAO
+SELECT DISTINCT CO_MICRORREGIAO, NO_MICRORREGIAO
 FROM Dados_ensino
 ORDER BY 1;
 
@@ -106,8 +122,8 @@ ALTER TABLE Dados_ensino drop column NO_MICROREGIAO;
 
 CREATE TABLE Entidade
 (
-   codigo bigint PRIMARY KEY,
-   nome varchar(100)
+	codigo VARCHAR(10) PRIMARY KEY,
+	nome varchar(100)
 );
 
 INSERT INTO Entidade
@@ -120,4 +136,3 @@ select * from Entidade;
 ALTER TABLE Dados_ensino drop column NO_ENTIDADE;
 
 /*------------------------*/
-
