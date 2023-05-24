@@ -190,3 +190,18 @@ ALTER TABLE Dados_ensino drop column NO_ENTIDADE;
 ALTER TABLE Dados_ensino drop column CO_ENTIDADE;
 
 /*------------------------*/
+
+CREATE TABLE D_endereco
+(
+	codigo serial PRIMARY KEY,
+	nome varchar(70)
+);
+
+INSERT INTO D_endereco(nome)
+SELECT DISTINCT DS_ENDERECO
+FROM Dados_ensino
+ORDER BY 1;
+
+select * from D_endereco;
+
+ALTER TABLE Dados_ensino ADD COLUMN d_endereco int REFERENCES D_endereco(codigo);
