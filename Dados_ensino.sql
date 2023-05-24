@@ -157,4 +157,27 @@ FROM D_endereco
 WHERE DS_ENDERECO = D_endereco.nome;
 
 ALTER TABLE Dados_ensino drop column DS_ENDERECO;
+
+/*------------------------*/
+
+CREATE TABLE N_endereco
+(
+	codigo serial PRIMARY KEY,
+	nome varchar(100)
+);
+
+INSERT INTO N_endereco(nome)
+SELECT DISTINCT NU_ENDERECO
+FROM Dados_ensino
+ORDER BY 1;
+
+select * from N_endereco;
+
+ALTER TABLE Dados_ensino ADD COLUMN n_endereco int REFERENCES N_endereco(codigo);
+
+UPDATE Dados_ensino SET n_endereco = N_endereco.codigo
+FROM N_endereco
+WHERE NU_ENDERECO = N_endereco.nome;
+
+ALTER TABLE Dados_ensino drop column NU_ENDERECO;
 /*------------------------*/
